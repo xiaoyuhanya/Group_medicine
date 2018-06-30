@@ -12,50 +12,55 @@ Page({
 
   //获取用户信息
   onGotUserInfo: function (e) {
-    // var s = e.detail.userInfo;
-    // console.log(s)
     app.globalData.userInfo = e.detail.userInfo;
+    this.setDataHandler();
   },
-//点击发布评论
+  //点击发布评论
   formSubmit (e) {
     var val = e.detail.value.comment;
-    if(!val){
-      wx.showToast({
-        title: '请填写评论',
-        icon: 'none',
-        duration: 1000,
-        mask: true,
-        success: function () {
+    this.setData({ currComment: val })
+  },
 
-        }
-      })
-    }else{
-      const book = app.globalData.book;
-      this.setData({
-        currComment: e.detail.value.comment
-      })
-      book.comments.unshift({
-        content: this.data.currComment,
-        username: app.globalData.userInfo.nickName,
-        head: app.globalData.userInfo.avatarUrl
-      })
-      wx.showToast({
-        title: '评论成功',
-        icon: 'success',
-        duration: 5000,
-        mask: true,
-        success: function () {
-          wx.navigateBack({
-            url: '../detail',
-            success: function(res) {},
-            fail: function(res) {},
-            complete: function(res) {},
-          })
-
-        }
-      })
+  setDataHandler () {
+    const book = app.globalData.book;
+    if (!this.data.currComment) {
+      this.errHandler();
+      return;
     }
-   
+
+    this.setData({
+      currComment: this.data.currComment
+    })
+    book.comments.unshift({
+      content: this.data.currComment,
+      username: app.globalData.userInfo.nickName,
+      head: app.globalData.userInfo.avatarUrl,
+      zanCount: 0,
+      zan: false
+    })
+    this.okHandler();
+  },
+  errHandler() {
+    wx.showToast({
+      title: '请填写评论',
+      icon: 'none',
+      duration: 1000,
+      mask: true,
+      success: function () {
+
+      }
+    })
+  },
+  okHandler() {
+    wx.showToast({
+      title: '评论成功',
+      icon: 'success',
+      duration: 5000,
+      mask: true,
+      success: function () {
+        wx.navigateBack();
+      }
+    })
   },
 
  

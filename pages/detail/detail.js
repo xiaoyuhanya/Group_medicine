@@ -39,29 +39,56 @@ Page({
     })
   },
 
+  // 点赞
+  zanClick (e) {
+    const postId = e.currentTarget.dataset.id;
+    const comments = app.globalData.book.comments;
+    for(var i=0;i<comments.length;i++){
+      var item = comments[i];
+      if(comments[i].postId == postId){
+        // if (item.zan == false) {
+        //   item.zanCount++;
+        //   item.zan = true;
+        // } else {
+        //   item.zanCount--;
+        //   item.zan = false;
+        // }
+
+        item.zan ? item.zanCount-- : item.zanCount++;
+        item.zan = !item.zan;
+      }
+    }
+
+    this.setDataHandler();
+    
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // 获取数据...
+    // 从后台获取数据...
 
     // 从后台获取数据之后
     app.globalData.book = {
       title: 'JavaScript高级程序设计',
       desc: "《JavaScript高级程序设计》是2006年人民邮电出版社出版的图书，作者是(美)(Nicholas C.Zakas)扎卡斯。",
-      gross: "1000",      
       comments: [
         {
           username: 'a',
           content: 'aaaaaaaaaaaaaaaaaaaa',
           head: '/source/images/cont_user.png',
-          postId:0
+          postId: 0,
+          zanCount: 1200,
+          zan: false
         },
         {
           username: 'b',
           content: 'bbbbbbbbbbbbbbbb',
           head: '/source/images/cont_user.png',
-          postId: 1
+          postId: 1,
+          zanCount: 200,
+          zan: true
         }
       ]
     }
@@ -84,13 +111,12 @@ Page({
     }
 
   },
-  //定义的方法
+  // 从全局变量中获取数据，并执行 setData
   setDataHandler: function (e) {
     const book = app.globalData.book;
     this.setData({
       title: book.title,
       desc: book.desc,
-      gross:book.gross,
       comments: book.comments
     })
   },

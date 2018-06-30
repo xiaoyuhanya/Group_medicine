@@ -1,20 +1,22 @@
 <template name="list-tmp">
-   <view class='list' wx:for="{{comments}}" wx:key="{{item.username}}"  data-id="{{item.postId}}">
+  <view class='list' wx:for="{{comments}}" wx:key="{{item.username}}">
     <view class='left-box'>
       <image src='{{item.head}}'></image>
     </view>
     <view class='right-box'>
       <view class='username-box'>
         <view class='uesr'>{{item.username}}</view>
-        <view class='zan-box'>
-          <image class='zan-pic' src='/source/images/cont_icon2_unsel.png' wx:if="{{zan}}"></image>
-          <image wx:else src='/source/images/cont_icon2_sel.png' class='zan-pic'></image>
-          <text class='zan-count'>2453</text>
+        <view class='zan-box' bindtap="zanClick" data-id="{{item.postId}}">
+          <image wx:if="{{item.zan}}" class='zan-pic' src='/source/images/cont_icon2_sel.png'>
+          </image>
+          <image wx:else class='zan-pic' src='/source/images/cont_icon2_unsel.png'>
+          </image>
+          <text class='zan-count'>{{ item.zanCount }}</text>
         </view>
       </view>
       <view class='comment-content'>{{ item.content }}</view>
       <view class='time'>2018/0625</view>
     </view>
-  </view> 
+  </view>
 
 </template>
