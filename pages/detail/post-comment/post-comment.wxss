@@ -1,0 +1,21 @@
+.book-comment {
+  padding: 20rpx;
+}
+
+textarea {
+  border: 1px solid #e5e5e5;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20rpx;
+}
+
+.comment-box {
+  padding: 20rpx;
+}
+
+.btn {
+  width: 80%;
+  background-color: #2a76cc;
+  color: #fff;
+  margin-top: 30rpx;
+}

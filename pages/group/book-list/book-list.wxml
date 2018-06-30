@@ -1,0 +1,18 @@
+<template name="book_list">
+  <view class='book-list' catchtap='onTap' wx:for="{{list}}" wx:key="{{item:username}}">
+    <view class='left-box'>
+      <image src='/source/images/pic_book.png'></image>
+    </view>
+    <view class='right-box'>
+      <view class='title'>
+        {{item.title}}
+      </view>
+      <view class="article">
+        {{item.article}}
+      </view>
+    </view>
+    <view class='introduction'>{{introd}}</view>
+
+  </view>
+  
+</template>

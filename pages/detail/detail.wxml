@@ -1,0 +1,61 @@
+<!--引入模板  -->
+<import src="./detail-tmp/detail-tmp" />
+<view class="countainer">
+
+  <view class='book-list-box'>
+    <view class='book-list'>
+      <view class='left-box'>
+        <image src='/source/images/pic_book.png'></image>
+      </view>
+      <view class='right-box'>
+        <view class='title-box'>
+          {{ title }}
+        </view>
+        <view class="article">
+          {{ desc }}
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+  <!--tab切换  -->
+  <view class="nav bc_white">
+    <view class="{{selected?'red':'default'}}" bindtap="selected">详情</view>
+    <view class="{{selected1?'red':'default'}}" bindtap="selected1">书友评论</view>
+  </view>
+  <view class="{{selected?'show':'hidden'}}">
+    <view class='title'>
+      作者简要
+    </view>
+    <view class='content'>
+      关于作者的一些信息关于作者的一些信息关于作者的一些信息关于作者的一些信息关于作者的一些信息关于作者的一些信息关于作者的一些信息
+    </view>
+    <view class='title'>
+      书籍简要
+    </view>
+    <view class='content'>
+      关于作者的一些信息关于作者的一些信息关于作者的一些信息关于作者的一些信息关于作者的一些信息关于作者的一些信息关于作者的一些信息
+    </view>
+  </view>
+  <view class="{{selected1?'show':'hidden'}}">
+
+    <view class='comment-box'>
+      <view class='comment-gross' catchtap='onGrosschange'>
+        <image src='/source/images/cont_icon.png'></image>
+        <text class='gross'>{{gross}}</text>
+      </view>
+      <view class='comment-mine' catchtap='postComment'>我要评论</view>
+
+    </view>
+    <!--评论列表  -->
+    <view class="comment-list">
+    <!--调用模板  -->
+      <template is="list-tmp" data="{{ comments }}"></template>
+    </view>
+  </view>
+
+  <view class='btn-box'>
+    <button class='btn'>我要购买</button>
+  </view>
+</view>

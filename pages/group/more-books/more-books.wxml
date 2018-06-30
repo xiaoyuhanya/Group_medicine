@@ -1,0 +1,9 @@
+<import src="../book-list/book-list.wxml" />
+<view class="countainer">
+  <view class='book-list-box'>
+    <template is="book_list" data="{{list}}"></template>
+
+
+  </view>
+
+</view>

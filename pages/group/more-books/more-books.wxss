@@ -1,0 +1,27 @@
+
+.book-list-box {
+  border-top: 1px solid #eeeeee;
+  margin-top:10rpx;
+
+}
+
+.book-list-box image {
+  width: 141rpx;
+  height: 205rpx;
+}
+
+.book-list {
+  display: flex;
+  padding: 20rpx;
+  box-sizing: border-box;
+   border-bottom: 1px solid #eeeeee;
+}
+
+.right-box {
+  
+  padding-left: 48rpx;
+}
+
+.right-box view {
+  font-size: 30rpx;
+}

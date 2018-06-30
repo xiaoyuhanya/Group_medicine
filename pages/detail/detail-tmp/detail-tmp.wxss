@@ -1,0 +1,41 @@
+.comment-list {
+}
+
+.comment-list .list {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+.comment-list .list .left-box {
+}
+
+.comment-list .list .left-box image {
+  width: 121rpx;
+  height: 121rpx;
+}
+
+.comment-list .list .right-box {
+ padding-left:20rpx;
+}
+
+.comment-list .list .right-box .username-box {
+  flex: 2;
+  display: flex;
+  justify-content: space-between;
+}
+.comment-list .list .right-box .username-box .user{
+  color:#f00;
+}
+
+.comment-list .list .right-box image {
+  width: 32rpx;
+  height: 27rpx;
+}
+.zan-box .zan-count{
+  color:#999;
+}
+.zan-box .zan-pic{
+  margin-right: 10rpx;
+}

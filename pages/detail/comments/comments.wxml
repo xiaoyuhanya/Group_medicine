@@ -1,0 +1,13 @@
+<!--引入模板  -->
+<import src="../detail-tmp/detail-tmp" />
+<view class="countainer">
+  <view class='comment-gorss'>
+    <text>评论</text>
+    <text>23456</text>
+  </view>
+  <view class='comment-list'>
+     <!--调用模板  -->
+      <template is="list-tmp" data="{{comments}}"></template>
+  </view>
+
+</view>

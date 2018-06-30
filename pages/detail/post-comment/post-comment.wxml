@@ -1,0 +1,13 @@
+<view class="countainer">
+  <view class='book-comment'>
+    所评论的书籍：{{ title }}
+  </view>
+
+  <form bindsubmit="formSubmit">
+    <view class='comment-box'>
+        <textarea placeholder='请输入评论的内容...' value='{{currComment}}' name="comment"></textarea>
+    </view>
+    <button class='btn' formType="submit" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">发布评论</button>
+  </form>
+
+</view>

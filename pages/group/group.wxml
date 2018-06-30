@@ -1,0 +1,46 @@
+<import src="./book-list/book-list.wxml" />
+<view class="countainer">
+  <!--轮播图  -->
+  <swiper indicator-dots="{{indicatorDots}}" indicator-color="{{indicatorColor}}" indicator-active-color="#cccccc">
+    <swiper-item wx:for="{{bannerUrl}}" wx:key="{{item.username}}">
+      <image src='{{item.img}}'></image>
+    </swiper-item>
+
+  </swiper>
+  <!--热门推荐  -->
+  <view class='hot-recommend'>
+    <view class='hot-box'>
+
+      <text class='recommend'>热门推荐</text>
+      <view class='more-box'>
+        <text class='more' catchtap='onTapBook'>更多</text>
+        <image src='/source/images/icon_0.png'></image>
+      </view>
+
+
+    </view>
+    <view class='book_box'>
+      <view class='book' catchtap='onTap'>
+        <image src='{{item.img}}' wx:for="{{imgUrl}}" wx:key="{{item.username}}"></image>
+
+      </view>
+    </view>
+
+  </view>
+  <!--购买热门  -->
+
+  <view class='buy_hot-box'>
+    <view class='hot-box'>
+      <text class='recommend'>购买热门</text>
+      <view class='more-box'>
+        <text class='more'>更多</text>
+        <image src='/source/images/icon_0.png'></image>
+      </view>
+
+    </view>
+  </view>
+  <view class='book-list-box'>
+    <template is="book_list" data="{{list}}"></template>
+
+  </view>
+</view>
