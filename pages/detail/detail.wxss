@@ -124,6 +124,8 @@ page {
 }
 
 .comment-list {
+  margin-bottom:40px;
+
 }
 
 .comment-list .list {

@@ -3,7 +3,7 @@
 <view class="countainer">
   <view class='comment-gorss'>
     <text>评论</text>
-    <text>23456</text>
+    <text>{{comments.length}}</text>
   </view>
   <view class='comment-list'>
      <!--调用模板  -->

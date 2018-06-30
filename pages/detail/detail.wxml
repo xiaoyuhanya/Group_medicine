@@ -43,7 +43,7 @@
     <view class='comment-box'>
       <view class='comment-gross' catchtap='onGrosschange'>
         <image src='/source/images/cont_icon.png'></image>
-        <text class='gross'>{{gross}}</text>
+        <text class='gross'>{{comments.length}}</text>
       </view>
       <view class='comment-mine' catchtap='postComment'>我要评论</view>
 

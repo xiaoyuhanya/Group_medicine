@@ -10,6 +10,37 @@ Page({
     
   },
 
+  // 点赞
+  zanClick (e) {
+    const postId = e.currentTarget.dataset.id;
+    const comments = app.globalData.book.comments;
+    for (var i = 0; i < comments.length; i++) {
+      var item = comments[i];
+      if (item.postId == postId) {
+        // if (item.zan == false) {
+        //   item.zanCount++;
+        //   item.zan = true;
+        // } else {
+        //   item.zanCount--;
+        //   item.zan = false;
+        // }
+
+        item.zan ? item.zanCount-- : item.zanCount++;
+        item.zan = !item.zan;
+      }
+    }
+    this.setDataHandler();
+  },
+  //定义的方法
+  setDataHandler: function (e) {
+    const book = app.globalData.book;
+    this.setData({
+      title: book.title,
+      desc: book.desc,
+      comments: book.comments
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -72,4 +103,6 @@ Page({
   onShareAppMessage: function () {
     
   }
+
+
 })
